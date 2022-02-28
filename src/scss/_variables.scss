@@ -1,0 +1,48 @@
+$tablet-breakpoint: 519px;
+$pc-breakpoint: 956px;
+$border: 3px solid;
+$background-color: #efebe0;
+$background-color-darker: #ecdeb9;
+$main-color: #b15a5e;
+$sub-color: #003740;
+$accent-color: #d4b572;
+
+@mixin button($width) {
+  margin: 15px auto 0 auto;
+  padding: 8px 12px;
+  width: $width;
+  border: $border;
+  border-color: $accent-color;
+  opacity: 1;
+  &:active {
+    opacity: 0.6;
+  }
+}
+
+@mixin query-results($width) {
+  .result {
+    background-color: $background-color;
+    width: $width;
+    margin: 5px auto;
+    padding-left: 40px;
+    text-align: left;
+
+    &:nth-child(odd) {
+      background-color: $background-color-darker;
+    }
+
+    span {
+      margin: 10px;
+    }
+    p {
+      width: 100%;
+      margin: 0 auto;
+    }
+    p:nth-child(1) {
+      font-size: 150%;
+    }
+    p:nth-child(n + 1) {
+      font-size: 100%;
+    }
+  }
+}

@@ -1,32 +1,79 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div class="whole-wrapper">
+      <header>
+        <Header></Header>
+      </header>
+      <div class="container">
+        <router-view />
+      </div>
     </div>
-    <router-view/>
   </div>
 </template>
 
-<style>
+<script>
+import firebase from "firebase/compat/app";
+require("dotenv").config({ debug: true });
+
+import Header from "@/views/Header";
+
+const firebaseConfig = {
+  apiKey: process.env.VUE_APP_API_KEY,
+  authDomain: process.env.VUE_APP_AUTHDOMAIN,
+  projectId: process.env.VUE_APP_PROJECTID,
+  storageBucket: process.env.VUE_APP_STORAGEBUCKET,
+  messagingSenderId: process.env.VUE_APP_MESSAGEINGSENDERID,
+  appId: process.env.VUE_APP_APPID,
+  measurementId: process.env.VUE_APP_MEASUREMENTID,
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+export default {
+  name: "App",
+  components: {
+    Header: Header,
+  },
+};
+</script>
+
+<style lang="scss">
+@import "@/scss/_variables.scss";
+* {
+  box-sizing: border-box;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.whole-wrapper {
   text-align: center;
-  color: #2c3e50;
+  color: $sub-color;
+}
+header {
+  margin-bottom: 80px;
+}
+.container {
+  width: 100%;
+  margin: 0 auto;
 }
 
-#nav {
-  padding: 30px;
+.button {
+  @include button(25%);
+}
+.error-handle {
+  color: #b15a5e;
+  span {
+    display: block;
+  }
+}
+.error {
+  background-color: #ffd9d9;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+@media (max-width: $tablet-breakpoint) {
+  .button {
+    @include button(80%);
+  }
 }
 </style>

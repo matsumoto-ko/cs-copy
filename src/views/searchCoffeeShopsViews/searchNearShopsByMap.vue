@@ -9,7 +9,8 @@
   </div>
 </template>
 <script>
-require("dotenv").config({ debug: true });
+//require("dotenv").config({ debug: true });
+import "dotenv/config";
 //コンポーネントの読込
 import sendContents from "@/components/sendContents";
 

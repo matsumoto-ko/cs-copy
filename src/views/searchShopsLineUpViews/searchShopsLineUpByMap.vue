@@ -51,7 +51,8 @@ import scrollToTarget from "@/myModules/scrollToTarget";
 //maps javascript api の設定
 import { Loader } from "@googlemaps/js-api-loader";
 
-require("dotenv").config({ debug: true });
+//require("dotenv").config({ debug: true });
+import "dotenv/config";
 
 const loader = new Loader({
   apiKey: process.env.VUE_APP_APIKEY,

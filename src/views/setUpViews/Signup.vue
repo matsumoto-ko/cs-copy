@@ -171,7 +171,7 @@ export default {
         createUserWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
             const user = userCredential.user; // eslint-disable-line no-unused-vars
-            console.log(user);
+            //console.log(user);
             //ユーザー名の登録
             updateProfile(auth.currentUser, {
               displayName: username,

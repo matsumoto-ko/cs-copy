@@ -56,7 +56,8 @@ import scrollToTarget from "@/myModules/scrollToTarget";
 //maps javascript apiで地図表示、マーカー作成
 //その中のplaces libraryで周辺の店舗情報の取得
 import { Loader } from "@googlemaps/js-api-loader";
-require("dotenv").config({ debug: true });
+//require("dotenv").config({ debug: true });
+import "dotenv/config";
 
 const loader = new Loader({
   apiKey: process.env.VUE_APP_APIKEY,
@@ -76,7 +77,7 @@ export default {
   data() {
     return {
       show: "",
-      searchName: "",
+      searchName: "ブルーボトル　みなとみらい",
       mapshow: null,
       errorShows: {
         shopsExistence: true,
@@ -85,7 +86,7 @@ export default {
       queryButtonShow2: null,
       queryButtonShow3: null,
       shopsData: {
-        name: "ブルーボトル",
+        name: "",
         placeId: "ChIJa9SVMG5dGGARP0P5I9pq_FA",
       },
       count: 0,

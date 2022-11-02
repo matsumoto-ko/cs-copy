@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-link to="/home">Home</router-link>
+    <!--<router-link to="/home">Home</router-link>-->
     <h2>ログイン画面</h2>
 
     <div class="error-handle">
@@ -43,12 +43,11 @@
 
     <div>
       <button @click.prevent="signIn">サインイン</button>
-      <p>such.co.fe@gmail.com</p>
     </div>
-    <p>
+    <!--<p>
       アカウントを持っていませんか？<br />
       <router-link to="/signup">新規アカウント登録はこちら</router-link>
-    </p>
+    </p>-->
   </div>
 </template>
 
@@ -68,7 +67,7 @@ import router from "@/router/index";
 export default {
   data() {
     return {
-      email: "",
+      email: "coffeesearcher.test@gmail.com",
       password: "",
     };
   },

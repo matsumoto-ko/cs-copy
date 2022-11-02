@@ -71,6 +71,7 @@ export default {
   .link {
     display: block;
     margin: 15px auto 0 auto;
+    box-shadow: 1px 2px gainsboro;
     padding: 5px 0;
     width: 25%;
     color: $sub-color;

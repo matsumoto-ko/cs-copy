@@ -25,26 +25,6 @@
         <div class="row">
           <div class="error-handle col-sm-8">
             <form>
-              <!--入力1------------------------------------------>
-              <div class="form-group">
-                <label for="country">名前</label>
-                <input
-                  id="country"
-                  type="text"
-                  v-model="coffeeObject.lineUp.name"
-                  @blur="$v.coffeeObject.lineUp.name.$touch()"
-                  :class="{ error: $v.coffeeObject.lineUp.name.$error }"
-                />
-                <div v-if="$v.coffeeObject.lineUp.name.$error">
-                  <span v-if="!$v.coffeeObject.lineUp.name.required"
-                    >名前が入力されていません。</span
-                  >
-                  <span v-if="!$v.coffeeObject.lineUp.name.maxLength"
-                    >15字以内で入力してください</span
-                  >
-                </div>
-              </div>
-              <!--入力2------------------------------------------>
               <div class="form-group">
                 <label class="a" for="country">国名</label>
                 <input
@@ -63,8 +43,62 @@
                   >
                 </div>
               </div>
-              <!--入力3------------------------------------------>
+              <!--入力1------------------------------------------>
+              <!--<div class="roast-level">
+                <label for="country">焙煎度</label>
+                <input
+                  id="country"
+                  type="text"
+                  v-model="coffeeObject.lineUp.name"
+                  @blur="$v.coffeeObject.lineUp.name.$touch()"
+                  :class="{ error: $v.coffeeObject.lineUp.name.$error }"
+                />
+                <div v-if="$v.coffeeObject.lineUp.name.$error">
+                  <span v-if="!$v.coffeeObject.lineUp.name.required"
+                    >名前が入力されていません。</span
+                  >
+                  <span v-if="!$v.coffeeObject.lineUp.name.maxLength"
+                    >15字以内で入力してください</span
+                  >
+                </div>
+              </div>-->
+              <!------------------------------------------------->
               <div class="form-group">
+                <label for="country">銘柄</label>
+                <input
+                  id="country"
+                  type="text"
+                  v-model="coffeeObject.lineUp.name"
+                  @blur="$v.coffeeObject.lineUp.name.$touch()"
+                  :class="{ error: $v.coffeeObject.lineUp.name.$error }"
+                />
+                <div v-if="$v.coffeeObject.lineUp.name.$error">
+                  <span v-if="!$v.coffeeObject.lineUp.name.required"
+                    >名前が入力されていません。</span
+                  >
+                  <span v-if="!$v.coffeeObject.lineUp.name.maxLength"
+                    >15字以内で入力してください</span
+                  >
+                </div>
+              </div>
+              <!--入力2------------------------------------------>
+              <!--<div class="form-group">
+                <label for="farm">地域</label>
+                <input
+                  id="farm"
+                  type="text"
+                  v-model="coffeeObject.lineUp.farm"
+                  @blur="$v.coffeeObject.lineUp.farm.$touch()"
+                  :class="{ error: $v.coffeeObject.lineUp.farm.$error }"
+                />
+                <div v-if="$v.coffeeObject.lineUp.farm.$error">
+                  <span v-if="!$v.coffeeObject.lineUp.farm.maxLength"
+                    >15字以内で入力してください</span
+                  >
+                </div>
+              </div>-->
+              <!--入力3------------------------------------------>
+              <!--<div class="form-group">
                 <label for="farm">農園</label>
                 <input
                   id="farm"
@@ -78,7 +112,7 @@
                     >15字以内で入力してください</span
                   >
                 </div>
-              </div>
+              </div>-->
               <!--入力4------------------------------------------>
               <div class="form-group">
                 <label for="variety">品種</label>
@@ -95,10 +129,44 @@
                   >
                 </div>
               </div>
+              <!--入力4------------------------------------------>
+              <div class="form-group">
+                <label for="processing">プロセス</label>
+                <input
+                  id="processing"
+                  type="text"
+                  v-model="coffeeObject.lineUp.processing"
+                  @blur="$v.coffeeObject.lineUp.processing.$touch()"
+                  :class="{ error: $v.coffeeObject.lineUp.processing.$error }"
+                />
+                <div v-if="$v.coffeeObject.lineUp.processing.$error">
+                  <span v-if="!$v.coffeeObject.lineUp.processing.maxLength"
+                    >15字以内で入力してください</span
+                  >
+                </div>
+              </div>
+              <!-------------------------------------------------->
+              <!--<div class="form-group">
+                <label for="farm">フレーバー</label>
+                <input
+                  id="farm"
+                  type="text"
+                  v-model="coffeeObject.lineUp.farm"
+                  @blur="$v.coffeeObject.lineUp.farm.$touch()"
+                  :class="{ error: $v.coffeeObject.lineUp.farm.$error }"
+                />
+                <div v-if="$v.coffeeObject.lineUp.farm.$error">
+                  <span v-if="!$v.coffeeObject.lineUp.farm.maxLength"
+                    >15字以内で入力してください</span
+                  >
+                </div>
+              </div>-->
+              <!-------------------------------------------->
               <!-------------------------------------------->
               <button class="btn btn-info" @click.prevent="resetInput">
                 入力をクリア
               </button>
+              <br />
               <button class="btn btn-info" @click.prevent="sendCoffeeObject">
                 送信
               </button>
@@ -109,7 +177,7 @@
       </div>
     </div>
     <br />
-    <button class="button" @click="sendCoffeeObject">お豆情報を送る</button>
+    <!--<button class="button" @click="sendCoffeeObject">お豆情報を送る</button>-->
   </div>
 </template>
 
@@ -121,27 +189,8 @@ import Vue from "vue";
 import "firebase/compat/firestore";
 import firebase from "firebase/compat/app";
 //require("dotenv").config({ debug: true });
-//
-//const firebaseConfig = {
-//  apiKey: process.env.VUE_APP_API_KEY,
-//  authDomain: process.env.VUE_APP_AUTHDOMAIN,
-//  projectId: process.env.VUE_APP_PROJECTID,
-//  storageBucket: process.env.VUE_APP_STORAGEBUCKET,
-//  messagingSenderId: process.env.VUE_APP_MESSAGEINGSENDERID,
-//  appId: process.env.VUE_APP_APPID,
-//  measurementId: process.env.VUE_APP_MEASUREMENTID,
-//};
+import "dotenv/config";
 
-//const firebaseConfig = {
-//  apiKey: "AIzaSyD0wNSpDKBruMhNIpbBRho3j6zBCsyrx38",
-//  authDomain: "coffee-place-86644.firebaseapp.com",
-//  projectId: "coffee-place-86644",
-//  storageBucket: "coffee-place-86644.appspot.com",
-//  messagingSenderId: "793988346548",
-//  appId: "1:793988346548:web:90647b76e0b83e14859de1",
-//  measurementId: "G-EZNFQZP6ZX",
-//};
-//firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
 //[gppgle api の設定]
@@ -172,13 +221,15 @@ export default Vue.extend({
         information: {
           name: "", //this.shopsData.name,,
           placeId: "", //this.shopsData.placeId,
-          address: null, //this.shopsData.placeId,
+          address: null, //this.shopsData.address,
+          nearestStation: null, //this.shopsData.nearestSation
         },
         lineUp: {
           name: "",
           country: "",
           farm: "",
           variety: "",
+          processing: "",
           createdAt: "",
           author: this.$store.state.username,
         },
@@ -192,6 +243,7 @@ export default Vue.extend({
         country: { required, maxLength: maxLength(15) },
         variety: { maxLength: maxLength(15) },
         farm: { maxLength: maxLength(15) },
+        processing: { maxLength: maxLength(15) },
       },
     },
   },
@@ -201,6 +253,7 @@ export default Vue.extend({
       this.coffeeObject.lineUp.country = "";
       this.coffeeObject.lineUp.farm = "";
       this.coffeeObject.lineUp.variety = "";
+      this.coffeeObject.lineUp.processing = "";
     },
     sendCoffeeObject: function () {
       this.$v.$touch();
@@ -212,10 +265,12 @@ export default Vue.extend({
         //登録日時を登録
         this.coffeeObject.lineUp.createdAt =
           firebase.firestore.FieldValue.serverTimestamp();
-        //coffeeobject.informationの情報を登録
+        //[searchShopsView]たちから送られてきたcoffeeobject.informationの情報を登録
         this.coffeeObject.information.name = this.shopsData.name;
         this.coffeeObject.information.placeId = this.shopsData.placeId;
         this.coffeeObject.information.address = this.shopsData.address;
+        this.coffeeObject.information.nearestStation =
+          this.shopsData.nearestStation;
         console.log(this.coffeeObject);
 
         //farm,varietyに入力がなかったら
@@ -325,9 +380,11 @@ export default Vue.extend({
         ///  .catch((error) => {
         ///    console.log(error);
         ///  });
-        setTimeout(function () {
-          self.seccusessShow = !self.seccusessShow;
-        }, 3000);
+        if (self.seccusessShow == true) {
+          setTimeout(function () {
+            self.seccusessShow = !self.seccusessShow;
+          }, 3000);
+        }
       }
     },
 
@@ -386,6 +443,9 @@ export default Vue.extend({
       }
       span {
         display: block;
+      }
+      .form-group {
+        padding: 10px auto;
       }
     }
   }

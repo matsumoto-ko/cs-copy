@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="header">
-      <router-link to="/home" class="home">Home</router-link>
-      <p @click="signout" class="logout">ログアウトする</p>
+      <!--<router-link to="/home" class="home">Home</router-link>-->
+      <!--<p @click="signout" class="logout">ログアウトする</p>-->
     </div>
   </div>
 </template>

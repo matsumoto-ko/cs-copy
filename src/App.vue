@@ -13,7 +13,8 @@
 
 <script>
 import firebase from "firebase/compat/app";
-require("dotenv").config({ debug: true });
+//require("dotenv").config({ debug: true });
+import "dotenv/config";
 
 import Header from "@/views/Header";
 
@@ -63,6 +64,7 @@ header {
 }
 .error-handle {
   color: #b15a5e;
+
   span {
     display: block;
   }

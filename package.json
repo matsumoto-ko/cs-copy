@@ -16,6 +16,7 @@
     "firebase": "^9.6.0",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
+    "vue-select": "^3.18.3",
     "vuelidate": "^0.7.7",
     "vuex": "^3.6.2"
   },

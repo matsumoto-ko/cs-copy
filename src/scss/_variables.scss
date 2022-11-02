@@ -24,8 +24,6 @@ $accent-color: #d4b572;
     background-color: $background-color;
     width: $width;
     margin: 5px auto;
-    padding-left: 40px;
-    text-align: left;
 
     &:nth-child(odd) {
       background-color: $background-color-darker;
